@@ -13,7 +13,7 @@ using namespace std;
 * \param c число
 * \return возврощает значение суммы
 */
-double Sum( double a,  double b,  double c);
+double Sum( double a,  double b,  double c); // исправил на const doble
 /**
 * \ Number_of_negative_numbers Функция для расчета  отрицательных чисел
 * \param a число
@@ -21,7 +21,7 @@ double Sum( double a,  double b,  double c);
 * \param c число
 * \return возврощает значение   расчета  отрицательных чисел
 */
-double Number_of_negative_numbers(double a, double b, double c);
+double Number_of_negative_numbers(double a, double b, double c); // исправил на const doble
 /**
 * \brief Перечислимый тип чисел, с помощью которого можно посчитать 
 */
@@ -53,24 +53,21 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	double a, b, c;
+	cout << "Введите три числа" << endl; // сделал выбор до 
+	cin >> a >> b >> c;
 	const auto message = "Выберите, что нужно посчитать:\n"
 		+ to_string(static_cast<int>(Choice::Sum)) + " - Сумма\n"
-		+ to_string(static_cast<int>(Choice::Number_of_negative_numbers)) + " - Колличество отриательных чисел \n";
+		+ to_string(static_cast<int>(Choice::Number_of_negative_numbers)) + " - Количество отриательных чисел \n";
 	const auto Number = ReadUserChoice(message);
 	switch (Number)
 	{
 	case Choice::Sum:
 	{
-		cout << "Введите три числа" << endl;
-		cin >> a >> b >> c;
-		
 		cout << "Сумма = " << Sum(a, b, c) << endl;
 		break;
 	}
 	case Choice::Number_of_negative_numbers:
 	{
-		cout << "Введите три числа" << endl;
-		cin >> a >> b>>c;
 		cout << "Колличество отриательных чисел = " <<Number_of_negative_numbers(a, b,c) << endl;
 		break;
 	}
