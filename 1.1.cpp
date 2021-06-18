@@ -1,12 +1,26 @@
 ﻿// 1.1
+// библиотеки нужные для мат. вычислений
+// библиотеки нужные для мат. вычислений
+// библиотеки нужные для мат. вычислений
+#define _USE_MATH_DEFINES // for C++
+#include <cmath>
 #include <iostream>
-#define USE_MATH_DEFINES 
-// библиотеки нужные для мат. вычислений
-#include <cmath> 
-// библиотеки нужные для мат. вычислений
-using namespace std; 
+#include <Windows.h>
+#include "1.1.h"
 // нужно чтобы не прописывать std 
-double GetA(const double x, const double y, const double z , const double e)
+using namespace std;
+
+// Объявление функции main()
+int main()
+{
+	const double x = 0.3; //вводим данные
+	const double y = 2.9; //вводим данные
+	const double z = 0.5; //вводим данные
+	const auto a = GetA(x, y, z);
+	const auto b = GetB(x, y, z);
+	cout << "x = " << x << "\ny = " << y << "\nz = " << z << "\na = " << a << "\nb = " << b;  // вывод данных ,вывод на новою строчку
+	return 0;
+}
 /**
 * \GetA Функция для расчета a
 * \param x параметр x ,задан в задании
@@ -15,12 +29,12 @@ double GetA(const double x, const double y, const double z , const double e)
 * \param e параметр e ,задан в условии
 * \return возвращаем значение равное : a
 */
-{ 
-	return (pow(z,2) * x + pow ( e,-x) * cos(y * x ))/( y * x - pow(e,-x) * sin(y * x ) + 1 );
-	// функция для вычисления переменной а
-}
+double GetA(const double x, const double y, const double z)
 
-double GetB(const double x, const double y, const double z , const double e ) 
+{
+	// функция для вычисления переменной а
+	return (pow(z, 2) * x + pow(M_E, -x) * cos(y * x)) / (y * x - pow(M_E, -x) * sin(y * x) + 1);
+}
 /**
 * \GetB Функция для расчета b
 * \param x параметр x ,задан в задании
@@ -29,19 +43,9 @@ double GetB(const double x, const double y, const double z , const double e )
 * \param e параметр e ,задан в условии
 * \return возвращаем значение равное : b
 */
-{ 
-	return pow(e,2 * x ) * log(z + x) - pow(y , 3 * x ) * log(y - x) ;
-	// функция для вычисления переменной b
-}
-// Объявление функции main()
-int main() 
+double GetB(const double x, const double y, const double z)
+
 {
-	const double x = 0.3; //вводим данные
-	const double y = 2.9; //вводим данные
-	const double z = 0.5; //вводим данные
-	const double e = 2.7; //вводим данные
-	const auto a = GetA(x, y, z,e);
-	const auto b = GetB(x, y, z ,e);
-	cout << "x = " << x << "\ny = " << y << "\nz = " << z << "\ne = " << e << "\na = " << a << "\nb = " << b;  // вывод данных ,вывод на новою строчку
-	return 0;
+	// функция для вычисления переменной b
+	return pow((M_E), 2 * x) * log(z + x) - pow(y, 3 * x) * log(y - x);
 }
