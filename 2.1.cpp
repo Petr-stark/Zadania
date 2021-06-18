@@ -13,7 +13,7 @@ using namespace std;
 * \param c число
 * \return возврощает значение суммы
 */
-double Sum( double a,  double b,  double c); // исправил на const doble
+double Sum( const double a, const double b, const double c); // исправил на const doble
 /**
 * \ Number_of_negative_numbers Функция для расчета  отрицательных чисел
 * \param a число
@@ -21,7 +21,7 @@ double Sum( double a,  double b,  double c); // исправил на const dobl
 * \param c число
 * \return возврощает значение   расчета  отрицательных чисел
 */
-double Number_of_negative_numbers(double a, double b, double c); // исправил на const doble
+double Number_of_negative_numbers(const double a, const double b, const double c); // исправил на const doble
 /**
 * \brief Перечислимый тип чисел, с помощью которого можно посчитать 
 */
