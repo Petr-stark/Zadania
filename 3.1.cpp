@@ -26,7 +26,12 @@ int main()
 
 	for (double x = LOW_BOUND; x < UP_BOUND; x += STEP)
 	{
-		cout << setw(WIDTH) << x << " | " << setw(WIDTH) << calcFunction(x) << "\n";
+		if (x <= 1) {// ODZ
+			cout << setw(WIDTH) << x << " | " << setw(WIDTH) << calcFunction(x) << "\n";
+		}
+		else {
+			cout << "there is no decision!\n";
+		}
 	}
 
 	return 0;
@@ -34,5 +39,5 @@ int main()
 
 double calcFunction(const double x)
 {
-	return sqrt(1-x)- tan(x);
+	return sqrt(1 - x) - tan(x);
 }
