@@ -167,3 +167,5 @@ void multiplyАllmultiplesThrebyThirdElement(int* array, const int size , const 
 		}
 	}
 }
+
+
