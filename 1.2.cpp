@@ -11,7 +11,7 @@
 #include <cmath>
 //подключение математической библиотеки 
 using namespace std;
-double Путь(double a ,double t ,double b);
+double Way(double a ,double t ,double b);
 /**
 * \Путь- Функции пути.
 * \param a скорость(мы ее вводим).
@@ -32,12 +32,12 @@ int main()
 	cin >> t;
 	cout << "Введите скорость реки\n";
 	cin >> b;
-	S = Путь(a , t , b );
+	S = Way (a , t , b );
 	cout << "Путь = " << S ;
 
 	return 0;
 }
-double  Путь(double a, double t, double b)
+double  Way(double a, double t, double b)
 {
 	return (a + ( b )) * t ;
 }
