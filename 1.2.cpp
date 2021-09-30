@@ -39,7 +39,7 @@ int main()
 }
 double  Way(double a, double t, double b)
 {
-	return (a + ( b )) * t ;
+	return (a +  b ) * t ;
 }
 
 
