@@ -1,7 +1,7 @@
 ﻿
 //1.2
 /**
-* \v скорость лодки
+* \v скорость судна
 * \a скорость течения , если лодка против течени , тогда скорость течение вводим со знаком минус
 * \t время пути
 * \S путь лодки
@@ -11,17 +11,17 @@
 #include <cmath>
 //подключение математической библиотеки 
 using namespace std;
-double Way(double a ,double t ,double b);
+double path(double a ,double t ,double b);
 /**
 * \Путь- Функции пути.
-* \param v скорость(мы ее вводим).
+* \param v скорость судна(мы ее вводим).
 * \param t время(мы ее вводим).
 * \param a скорость реки(мы ее вводим).
 * \return Возвращает путь (S=(v + ( a )) * t ).
 */
 int main()
 {
-	double v ;
+	double v ; 
 	double a ;
 	double t ;
 	double S ;
@@ -32,12 +32,12 @@ int main()
 	cin >> t;
 	cout << "Введите скорость реки\n";
 	cin >> a;
-	S = Way (v , t , a );
+	S = path(v , t , a );
 	cout << "Путь = " << S ;
 
 	return 0;
 }
-double  Way(const double v, const double t, const double a)
+double  path (const double v, const double t, const double a)
 {
 	return (v +  a ) * t ;
 }
