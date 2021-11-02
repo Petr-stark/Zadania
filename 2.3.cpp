@@ -7,12 +7,12 @@ using namespace std;
 
 /**
 * \brief Функция для расчета y
-* \param x Параметр a
-* \param x Параметр p
-* \param a Параметр q
-* \param x Параметр r
-* \param a Параметр s
-* \return
+* \param x Параметр a длина участка
+* \param x Параметр b ширина участка
+* \param x Параметр p длина первого дома
+* \param a Параметр q ширина первого дома
+* \param x Параметр r длина второго дома
+* \param a Параметр s ширина второго дома
 */
 bool CanBuid(const double a, const double b, const double p, const double q, const double r, const double s);
 
