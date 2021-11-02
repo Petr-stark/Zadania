@@ -1,5 +1,4 @@
-﻿
-#include <iostream>
+﻿#include <iostream>
 #include <iomanip>
 #include <ctime>
 
@@ -50,6 +49,8 @@ int GetSum(int* array, const size_t size);
 * \param size Размер.
 **/
 void replacement_of_elements(int* array, const size_t size);
+
+int getNumber();
 
 /**
 * \brief Поиск номера последней пары соседних элементов с одинаковыми знаками, произведение которых меньше заданного числа.
@@ -109,7 +110,12 @@ int main()
 
 	cout << "Номер последней пары с одинаковыми знаками, произведение которых меньше заданного числа = " << getNumberOfLastPair(array, size) << "\n\n"; // 3
 
-	delete[] array;
+	if (array != nullptr)
+	{
+		delete[] array;
+		array = nullptr;
+	}
+
 
 	return 0;
 }
@@ -148,11 +154,11 @@ void Print(int* array, const int size)
 bool isOneDigit(int number)
 {
 	size_t counter = 0;
-	number = abs(number);
+	unsigned abs_number = abs(number);
 
-	while (number >= 1)
+	while (abs_number >= 1)
 	{
-		number = number / 10;
+		abs_number = abs_number / 10;
 		counter++;
 	}
 
@@ -226,14 +232,28 @@ void replacement_of_elements(int* array, const size_t size)
 	}
 	cout << inverted_array[size - 1] << "}\n\n";
 
+	if (inverted_array != nullptr)
+	{
+		delete[] inverted_array;
+		inverted_array = nullptr;
+	}
+
+
 }// Конец (2)
+
+int getNumber()
+{
+	int k;
+	cout << "\nВведите число, которое будет значением произведения пар = ";
+	cin >> k;
+
+	return k;
+}
 
 // Поиск номера последней пары соседних элементов с одинаковыми знаками, произведение которых меньше заданного числа(3)
 int getNumberOfLastPair(int* array, const size_t size)
 {
-	int k;
-	cout << endl << "Введите число, которое будет значением произведения пар = ";
-	cin >> k;
+	int k = getNumber();
 
 	size_t number = 0;
 
