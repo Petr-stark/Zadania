@@ -184,30 +184,30 @@ int GetSum(int* array, const size_t size)
 void replacement_of_elements(int* array, const size_t size)
 {
 
-	int Min = 0, Max = 0, first, second, Index = 0;
+	int min = 0, max = 0, first, second, Index = 0;
 
 	for (size_t i = 0; i < size; i++)
 	{
 
-		if (array[Min] > array[i])
+		if (array[min] > array[i])
 		{
-			Min = i;
+			min = i;
 		}
-		if (array[Max] < array[i])
+		if (array[max] < array[i])
 		{
-			Max = i;
+			max = i;
 		}
 	}
 
-	if (Min < Max)
+	if (min < max)
 	{
-		first = Min;
-		second = Max;
+		first = min;
+		second = max;
 	}
 	else
 	{
-		first = Max;
-		second = Min;
+		first = max;
+		second = min;
 	}
 
 	int* inverted_array = new int[size];
