@@ -25,7 +25,7 @@ void userInput(int* array, const int  size);
 * \param array Массив
 * \param size Размер массива
 **/
-void Print(int* array, const int size);
+void print(int* array, const int size);
 
 /**
 * \brief Поиск числа состоящих из одной цифры.
@@ -42,6 +42,10 @@ bool isOneDigit(int number);
 * \param return Значение суммы
 **/
 int GetSum(int* array, const size_t size);
+
+int findMax(const int* array, size_t size);
+
+int findMin(const int* array, size_t size);
 
 /**
 * \brief Перестановка элементов массива местами.
@@ -140,7 +144,7 @@ void userInput(int* array, const int  size)
 }
 
 // Вывод массива
-void Print(int* array, const int size)
+void print(int* array, const int size)
 {
 	cout << "array[" << size << "]" << "= {";
 	for (int i = 0; i < size - 1; i++)
@@ -180,24 +184,31 @@ int GetSum(int* array, const size_t size)
 	return sum;
 }
 
+int findMin(const int* array, size_t size)
+{
+	int min = 0;
+	for (size_t i = 0; i < size; i++)
+		if (array[min] > array[i])
+			min = i;
+
+	return min;
+}
+
+int findMax(const int* array, size_t size)
+{
+	int max = 0;
+	for (size_t i = 0; i < size; i++)
+		if (array[max] < array[i])
+			max = i;
+
+	return max;
+}
+
 // Заменить элементы массива между минимальным и максимальным на те же элементы в обратном порядке(2)
-void replacement_of_elements(int* array, const size_t size)
+void replacementOfElements(int* array, const size_t size)
 {
 
-	int min = 0, max = 0, first, second, Index = 0;
-
-	for (size_t i = 0; i < size; i++)
-	{
-
-		if (array[min] > array[i])
-		{
-			min = i;
-		}
-		if (array[max] < array[i])
-		{
-			max = i;
-		}
-	}
+	int min = findMin(array, size), max = findMax(array, size), first, second;
 
 	if (min < max)
 	{
@@ -210,32 +221,28 @@ void replacement_of_elements(int* array, const size_t size)
 		second = min;
 	}
 
-	int* inverted_array = new int[size];
+	int* invertedArray = new int[size];
+	int index = 0;
 
 	for (size_t i = 0; i < first; i++)
 	{
-		inverted_array[Index++] = array[i];
+		invertedArray[index++] = array[i];
 	}
 	for (size_t i = second; i >= first; i--)
 	{
-		inverted_array[Index++] = array[i];
+		invertedArray[index++] = array[i];
 	}
 	for (size_t i = second + 1; i < size; i++)
 	{
-		inverted_array[Index++] = array[i];
+		invertedArray[index++] = array[i];
 	}
 
-	cout << "Перевернутая матрица = {";
-	for (size_t i = 0; i < size; i++)
-	{
-		cout << inverted_array[i] << ";" << setw(3);
-	}
-	cout << inverted_array[size - 1] << "}\n\n";
+	print(invertedArray, size);
 
-	if (inverted_array != nullptr)
+	if (invertedArray != nullptr)
 	{
-		delete[] inverted_array;
-		inverted_array = nullptr;
+		delete[] invertedArray;
+		invertedArray = nullptr;
 	}
 
 
