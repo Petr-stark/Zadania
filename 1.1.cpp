@@ -1,10 +1,13 @@
 ﻿// 1.1
 // библиотеки нужные для мат. вычислений
+
 #define _USE_MATH_DEFINES 
 #include <iostream>
 #include <cmath> 
+
 // нужно чтобы не прописывать std 
 using namespace std; 
+
 /**
 * \GetA Функция для расчета a
 * \param x параметр x ,задан в задании
@@ -12,11 +15,13 @@ using namespace std;
 * \param z параметр z ,задан в задании
 * \return возвращаем значение равное : a
 */
+
 double GetA(const double x, const double y, const double z)
 { 
 	// функция для вычисления переменной а
 	return (pow(z,2) * x + pow (M_E,-x) * cos(y * x ))/( y * x - pow(M_E,-x) * sin(y * x ) + 1 );
 }
+
 /**
 * \GetB Функция для расчета b
 * \param x параметр x ,задан в задании
@@ -24,11 +29,13 @@ double GetA(const double x, const double y, const double z)
 * \param z параметр z ,задан в задании
 * \return возвращаем значение равное : b
 */
+
 double GetB(const double x, const double y, const double z  ) 
 { 
 	return pow(M_E,2 * x ) * log(z + x) - pow(y , 3 * x ) * log(y - x) ;
 	// функция для вычисления переменной b
 }
+
 // Объявление функции main()
 int main() 
 {
