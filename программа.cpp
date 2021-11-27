@@ -1,7 +1,7 @@
 ﻿#define _USE_MATH_DEFINES 
 #include <iostream>
 #include <cmath> 
-// нужно чтобы не прописывать std 
+
 using namespace std;
 /**
 * \GetA Функция для расчета a
@@ -14,14 +14,13 @@ double GetA(const double x, const double y, const double z);
 
 /**
 * \GetB Функция для расчета b
-* \param x параметр x ,задан в задании
-* \param y параметр y ,задан в задании
-* \param z параметр z ,задан в задании
+* \param x параметр x ,задан п
+* \param y параметр y ,задан 
+* \param z параметр z ,задан 
 * \return возвращаем значение равное : b
 */
 double GetB(const double x, const double y, const double z);
 
-// Объявление функции main()
 int main()
 {
 	const double x = 0.3; //вводим данные
@@ -36,7 +35,7 @@ int main()
 double GetA(const double x, const double y, const double z)
 {
 	// функция для вычисления переменной а
-	return (pow(z, 2) * x + pow(M_E, -x) * cos(y * x)) / (y * x - pow(M_E, -x) * sin(y * x) + 1); // так же можно было использовать exp  exp(x) вместо pow(a,b)
+	return (pow(z, 2) * x + pow(M_E, -x) * cos(y * x)) / (y * x - pow(M_E, -x) * sin(y * x) + 1); // так же можно было использовать pow(M_E, -x)  вместо exp(-x)
 }
 
 double GetB(const double x, const double y, const double z)
