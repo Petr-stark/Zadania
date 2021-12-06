@@ -41,7 +41,7 @@ bool isOneDigit(int number);
 * \param size Размер массива
 * \param return Значение суммы
 **/
-int GetSum(int* array, const size_t size);
+int getSum(int* array, const size_t size);
 
 int findMax(const int* array, size_t size);
 
@@ -52,7 +52,7 @@ int findMin(const int* array, size_t size);
 * \param array Массив
 * \param size Размер.
 **/
-void replacement_of_elements(int* array, const size_t size);
+void replacementOfElements(int* array, const size_t size);
 
 int getNumber();
 
@@ -98,19 +98,19 @@ int main()
 	{
 	case Filling::RANDOM:
 		randomDigits(array, size, LOW_BOUND, UP_BOUND);
-		Print(array, size);
+		print(array, size);
 		break;
 	case Filling::USER:
 		userInput(array, size);
-		Print(array, size);
+		print(array, size);
 		break;
 	default:
 		cout << "Ошибка! Не выбран ни один из вариантов";
 	}
 
-	cout << "Сумма элементов, значения которых состоят из одной цифры = " << GetSum(array, size) << "\n\n";// 1
+	cout << "Сумма элементов, значения которых состоят из одной цифры = " << getSum(array, size) << "\n\n";// 1
 
-	replacement_of_elements(array, size);
+	replacementOfElements(array, size);
 
 	cout << "Номер последней пары с одинаковыми знаками, произведение которых меньше заданного числа = " << getNumberOfLastPair(array, size) << "\n\n"; // 3
 
@@ -158,11 +158,11 @@ void print(int* array, const int size)
 bool isOneDigit(int number)
 {
 	size_t counter = 0;
-	unsigned abs_number = abs(number);
+	unsigned absNumber = abs(number);
 
-	while (abs_number >= 1)
+	while (absNumber >= 1)
 	{
-		abs_number = abs_number / 10;
+		absNumber = absNumber / 10;
 		counter++;
 	}
 
@@ -170,7 +170,7 @@ bool isOneDigit(int number)
 }
 
 // Сумма элементов, значения которых состоят из одной цифры(1)
-int GetSum(int* array, const size_t size)
+int getSum(int* array, const size_t size)
 {
 	int sum = 0;
 
