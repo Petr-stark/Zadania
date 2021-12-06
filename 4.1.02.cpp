@@ -68,8 +68,8 @@ int getNumberOfLastPair(int* array, const size_t size);
 **/
 enum class Filling
 {
-	RANDOM = 1,
-	USER = 2
+	Manuall,
+	Random
 };
 
 /**
@@ -89,18 +89,20 @@ int main()
 	cin >> size;
 
 	array = new int[size];
-	cout << "1)Сгенерировать массив\n" << "2)Заполнить массив вручную\n" << "1 или 2: ";
+	cout << static_cast<int>(Filling::Random) << ")Сгенерировать массив\n"
+		<< static_cast<int>(Filling::Manuall) << ")Заполнить массив вручную\n"
+		<< static_cast<int>(Filling::Random) << " или " << static_cast<int>(Filling::Manuall) << ":";
 	int choice;
 	cin >> choice;
 
 	const auto filling = static_cast<Filling>(choice);
 	switch (filling)
 	{
-	case Filling::RANDOM:
+	case Filling::Random:
 		randomDigits(array, size, LOW_BOUND, UP_BOUND);
 		print(array, size);
 		break;
-	case Filling::USER:
+	case Filling::Manuall:
 		userInput(array, size);
 		print(array, size);
 		break;
